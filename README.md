@@ -9,6 +9,20 @@ This system provides personalized lifestyle recommendations based on health prof
 - Comprehensive risk factor analysis
 - Customized diet, exercise, and lifestyle recommendations
 
+## Documentation
+
+Detailed documentation is available in the IMPORTANT folder:
+
+| Document | Description |
+|----------|-------------|
+| [Introduction](IMPORTANT/01_Introduction.md) | Overview of the system, its purpose, target users, and features |
+| [Installation Guide](IMPORTANT/02_Installation.md) | Detailed setup instructions and troubleshooting |
+| [How It Works](IMPORTANT/03_How_It_Works.md) | High-level overview of system architecture and components |
+| [Analysis Methods](IMPORTANT/04_How_Analysis_Works.md) | Technical explanation of data analysis and ML processes |
+| [System Architecture](IMPORTANT/05_How_System_Works.md) | Detailed implementation and code structure |
+| [Output Explanation](IMPORTANT/06_Output_Explanation.md) | Guide to understanding and interpreting recommendations |
+| [User Benefits](IMPORTANT/07_User_Benefits.md) | How to maximize value and implement lifestyle changes |
+
 ## Installation
 
 1. Clone this repository
@@ -51,3 +65,5 @@ The system provides recommendations in three categories:
 ## Note
 
 This system is for educational purposes and should not replace professional medical advice. Always consult with healthcare professionals for medical decisions.
+
+

@@ -1,0 +1,61 @@
++---------------------------------+
+|                                 |
+|     Heart Health Lifestyle      |
+|     Recommendation Engine       |
+|                                 |
++---------------------------------+
+               |
+               |
+               v
++-------------------------------+
+|                               |
+|     +-------------------+     |
+|     |                   |     |
+|     |  Data Processing  |     |
+|     |                   |     |
+|     +-------------------+     |
+|               |               |
+|               v               |
+|     +-------------------+     |
+|     |                   |     |
+|     |  Machine Learning |     |
+|     |  Model (Random   |     |
+|     |  Forest)         |     |
+|     |                   |     |
+|     +-------------------+     |
+|               |               |
+|               v               |
+|     +-------------------+     |
+|     |                   |     |
+|     |  Recommendation   |     |
+|     |  Engine           |     |
+|     |                   |     |
+|     +-------------------+     |
+|                               |
++-------------------------------+
+               |
+               |
+               v
++-------------------------------+
+|                               |
+|       User Interface          |
+|       (Streamlit Web App)     |
+|                               |
+| +---------------------------+ |
+| |                           | |
+| |  Health Profile Input     | |
+| |  (Form Elements)          | |
+| |                           | |
+| +---------------------------+ |
+| |                           | |
+| |  Results Display          | |
+| |  (Diet, Exercise,         | |
+| |   Lifestyle Habits)       | |
+| |                           | |
+| +---------------------------+ |
+|                               |
++-------------------------------+
+
+Note: This is a text representation of the system architecture diagram.
+Please convert this to an actual image file (system-architecture.png)
+using a diagramming tool before final documentation delivery. 
