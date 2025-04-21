@@ -95,6 +95,36 @@ class HeartHealthRecommender:
         
         return recommendations
 
+    def assess_risk(self, user_data):
+        # Convert user data to DataFrame for prediction
+        user_df = pd.DataFrame([user_data])
+        
+        # Get model prediction
+        risk_probability = self.model.predict_proba(user_df)[0][1]  # Probability of high risk
+        
+        # Count risk factors
+        risk_factors = self.get_risk_factors(user_data)
+        num_risk_factors = len(risk_factors)
+        
+        # Determine risk level based on probability and number of risk factors
+        if risk_probability >= 0.7 or num_risk_factors >= 4:
+            risk_level = "High Risk"
+            risk_color = "red"
+        elif risk_probability >= 0.4 or num_risk_factors >= 2:
+            risk_level = "Moderate Risk"
+            risk_color = "orange"
+        else:
+            risk_level = "Low Risk"
+            risk_color = "green"
+        
+        return {
+            'risk_level': risk_level,
+            'risk_color': risk_color,
+            'probability': risk_probability,
+            'num_risk_factors': num_risk_factors,
+            'risk_factors': risk_factors
+        }
+
 def main():
     st.title("Heart Health Lifestyle Recommendation Engine")
     st.write("""
@@ -138,10 +168,31 @@ def main():
     }
 
     if st.sidebar.button('Generate Recommendations'):
-        # Get recommendations
+        # Get risk assessment
+        risk_assessment = recommender.assess_risk(user_data)
+        
+        # Display risk assessment
+        st.header("Your Heart Health Risk Assessment")
+        
+        # Create a colored box for risk level
+        st.markdown(f"""
+        <div style='background-color: {risk_assessment['risk_color']}; padding: 10px; border-radius: 5px; text-align: center;'>
+            <h2 style='color: white;'>Risk Level: {risk_assessment['risk_level']}</h2>
+        </div>
+        """, unsafe_allow_html=True)
+        
+        # Display risk details
+        st.write(f"Risk Probability: {risk_assessment['probability']*100:.1f}%")
+        st.write(f"Number of Risk Factors: {risk_assessment['num_risk_factors']}")
+        
+        if risk_assessment['risk_factors']:
+            st.write("Identified Risk Factors:")
+            for factor in risk_assessment['risk_factors']:
+                st.write(f"• {factor.replace('_', ' ')}")
+        
+        # Get and display recommendations
         recommendations = recommender.generate_recommendations(user_data)
         
-        # Display recommendations
         st.header("Your Personalized Recommendations")
         
         st.subheader("Diet Recommendations")
